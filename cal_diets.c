@@ -36,7 +36,7 @@ void loadDiets(const char* DIETFILEPATH) {
      // ToCode: to read a list of the diets from the given file
      
      
-    diet_count = 0; //Initializing Variables by haeun
+    
 
     while (fscanf(file, "%s %d", diets[diet_count].food_name, &diets[diet_count].calories_intake) != EOF) {
     	
