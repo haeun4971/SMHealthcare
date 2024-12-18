@@ -28,7 +28,7 @@ int main() {
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
-    	if ( ){
+    	if (health_data.total_calories_intake >= 2000){  //by haeun
             printf("You have consumed all your calories for today! \n");
 		} 
 		else{
@@ -47,13 +47,21 @@ int main() {
         switch (choice) {
             case 1:
             	
+            	inputExercise(&health_data);  //structure for exercise by haeun
+            	
                 break;
                 
             case 2:
             	
+            	inputDiet(&health_data); //structure for diet by haeun
+
+            	
                 break;
                 
             case 3:
+            	
+            	printHealthData(&health_data); //print for healthdata by haeun
+
             	
                 break;
                 
