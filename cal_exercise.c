@@ -21,6 +21,16 @@
 static Exercise exercise_list[MAX_EXERCISES];
 int exercise_list_size = 0;
 
+typedef struct {
+    char exercise_name[MAX_EXERCISE_NAME_LEN]; 
+    int calories_burned_per_minute;          
+} Exercises;  //Specifying a Structure by haeun
+
+Exercise exercises[MAX_EXERCISES];  //Save exercise data by haeun
+int exercise_count; //Declaration of Variables by haeun
+
+
+
 
 /*
     description : read the information in "excercises.txt"
