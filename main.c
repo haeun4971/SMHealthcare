@@ -19,6 +19,8 @@
 
 static int choice;
 
+
+
 int main() {
 	// To initialize the health data object
     HealthData health_data = {0};
@@ -27,7 +29,7 @@ int main() {
     
     loadExercises(EXERCISEFILEPATH);  //by haeun
     loadDiets(DIETFILEPATH);  //by haeun
-
+    
     
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system

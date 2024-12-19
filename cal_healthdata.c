@@ -97,7 +97,7 @@ void printHealthData(const HealthData* health_data) {
     if (health_data->exercise_count == 0) {
         printf("No exercise data available.\n");
     } else {
-        for (i = 0; i < health_data->exercise_count; i++) {
+         for (i = 0; i < health_data->exercise_count; i++) {
             printf("Exercise: %s, Calories burned: %d kcal\n",
                    health_data->exercises[i].exercise_name,
                    health_data->exercises[i].calories_burned_per_minute);
