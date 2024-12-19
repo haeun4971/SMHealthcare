@@ -35,6 +35,8 @@ void loadDiets(const char* DIETFILEPATH) {
 
      // ToCode: to read a list of the diets from the given file
      
+     diet_count = 0; //by haeun
+     
      
     
 
@@ -64,8 +66,28 @@ void inputDiet(HealthData* health_data) {
     // ToCode: to provide the options for the diets to be selected
     printf("The list of diets:\n");
     
+    for (i=0; i < diet_count; i++) {
+        printf("%d. %s (%d kcal)\n", i + 1, diets[i].food_name, diets[i].calories_intake);
+    }
+    printf("%d. Exit\n", diet_count + 1);  //by haeun
+
+    
     
 	// ToCode: to enter the diet to be chosen with exit option
+	
+	printf("Choose a diet (1-%d): ", diet_count + 1);
+    scanf("%d", &choice);  //by haeun
+    
+    
+     if (choice == diet_count + 1) {
+        printf("Exit selected. No diet recorded.\n");
+        return; 
+    } else if (choice < 1 || choice > diet_count) {
+        printf("[Error] Invalid option selected.\n");
+        return; 
+    }     //by haeun
+
+
     
 
     // ToCode: to enter the selected diet in the health data
