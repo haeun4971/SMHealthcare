@@ -35,24 +35,24 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     // ToCode: to save the chosen exercise and total calories burned 
     fprintf(file, "[Exercises] \n");
     
-    for (i = 0; i < health_data->exercise_count; i++) {
+    for (i = 0; i < health_data->exercise_count; i++) {   //exercise Listed on File: Outputting Exercise Name and Calorie Burnout  by haeun
         fprintf(file, "%d. %s, Calories burned: %d kcal\n",
                 i + 1,
                 health_data->exercises[i].exercise_name,
                 health_data->exercises[i].calories_burned_per_minute);
-    }  //haeun
+    }  // // Output exercise history to a file by haeun
 
     
     
     // ToCode: to save the chosen diet and total calories intake 
     fprintf(file, "\n[Diets] \n");
     
-    for (i = 0; i < health_data->diet_count; i++) {
+    for (i = 0; i < health_data->diet_count; i++) {   // Record Diet List on File: Print Food Name and Calorie Intake by haeun
         fprintf(file, "%d. %s, Calories intake: %d kcal\n",
                 i + 1,
                 health_data->diet[i].food_name,
                 health_data->diet[i].calories_intake);
-    } //haeun
+    } //// Output Diet History to a File by haeun
 
 
 
@@ -61,14 +61,14 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     fprintf(file, "\n[Total] \n");
     
     int remaining_calories = health_data->total_calories_intake -
-                             (BASAL_METABOLIC_RATE + health_data->total_calories_burned);
-    fprintf(file, "Basic Metabolic Rate: %d kcal\n", BASAL_METABOLIC_RATE);
-    fprintf(file, "Total Calories Burned: %d kcal\n", health_data->total_calories_burned);
-    fprintf(file, "Total Calories Intake: %d kcal\n", health_data->total_calories_intake);
-    fprintf(file, "Remaining Calories: %d kcal\n", remaining_calories);
+                             (BASAL_METABOLIC_RATE + health_data->total_calories_burned);  // difference between basal metabolism and calories consumed by haeun
+    fprintf(file, "Basic Metabolic Rate: %d kcal\n", BASAL_METABOLIC_RATE);  // print Basic Metabolic Output by haeun
+    fprintf(file, "Total Calories Burned: %d kcal\n", health_data->total_calories_burned); // print Total Calories burned by haeun
+    fprintf(file, "Total Calories Intake: %d kcal\n", health_data->total_calories_intake); // print Total Calories intake by haeun
+    fprintf(file, "Remaining Calories: %d kcal\n", remaining_calories); // print Remaining Calories by haeun
 
-    fclose(file);
-} //haeun
+    fclose(file); // close file by haeun
+} // savaData close by haeun
     
     
 
@@ -86,23 +86,22 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 	
 void printHealthData(const HealthData* health_data) {
     int i;
-    int remaining_calories = health_data->total_calories_intake - 
-                             (BASAL_METABOLIC_RATE + health_data->total_calories_burned);
-    // 위와 같이 함수 시작 부분에 remaining_calories 변수를 선언하고 초기화합니다.
+    int remaining_calories = health_data->total_calories_intake - (BASAL_METABOLIC_RATE + health_data->total_calories_burned); // calculating remain cal by haeun
+    
 	
 	// ToCode: to print out the saved history of exercises
 	printf("=========================== History of Exercise =======================\n");
 	
 	
     if (health_data->exercise_count == 0) {
-        printf("No exercise data available.\n");
+        printf("No exercise data available.\n");  // print if there is no exercise data by haeun
     } else {
          for (i = 0; i < health_data->exercise_count; i++) {
             printf("Exercise: %s, Calories burned: %d kcal\n",
-                   health_data->exercises[i].exercise_name,
-                   health_data->exercises[i].calories_burned_per_minute);
+                   health_data->exercises[i].exercise_name,  //print exercise name by haeun
+                   health_data->exercises[i].calories_burned_per_minute); // print cal_burned by haeun
         }
-    }  //by haeun
+    }  //Exercise Record Output Ends by haeun
  
 	
 	 
@@ -113,12 +112,12 @@ void printHealthData(const HealthData* health_data) {
     printf("============================= History of Diet =========================\n");
     
     if (health_data->diet_count == 0) {
-        printf("No diet data available.\n");
+        printf("No diet data available.\n");   // print if no diet data by haeun
     } else {
-        for (i = 0; i < health_data->diet_count; i++) {
-            printf("Food: %s, Calories intake: %d kcal\n",
-                   health_data->diet[i].food_name,
-                   health_data->diet[i].calories_intake);
+        for (i = 0; i < health_data->diet_count; i++) {   // print diet by haeun
+            printf("Food: %s, Calories intake: %d kcal\n",  
+                   health_data->diet[i].food_name,  // food name print by haeun 
+                   health_data->diet[i].calories_intake);  // cal_intake print by haeun
         }  //by haeun
   
 
@@ -130,10 +129,10 @@ void printHealthData(const HealthData* health_data) {
 	printf("============================== Total Calories =========================\n");
 	
 	int remaining_calories = health_data->total_calories_intake - (BASAL_METABOLIC_RATE + health_data->total_calories_burned);
-    printf("Basic Metabolic Rate: %d kcal\n", BASAL_METABOLIC_RATE);
-    printf("Total Calories Burned: %d kcal\n", health_data->total_calories_burned);
-    printf("Total Calories Intake: %d kcal\n", health_data->total_calories_intake);
-    printf("Remaining Calories: %d kcal\n", remaining_calories);
+    printf("Basic Metabolic Rate: %d kcal\n", BASAL_METABOLIC_RATE);    // basic meta rate print by haeun 
+    printf("Total Calories Burned: %d kcal\n", health_data->total_calories_burned); // total cal_burned print by haeun 
+    printf("Total Calories Intake: %d kcal\n", health_data->total_calories_intake); // total cal_intake print by haeun 
+    printf("Remaining Calories: %d kcal\n", remaining_calories); // remaining cal print by haeun
 
  
  
@@ -145,31 +144,31 @@ void printHealthData(const HealthData* health_data) {
 	// ToCode: to print out the recommendtaion depending on the current total calories burned and intake 
 	
 
-	 if (remaining_calories == 0) {
-        printf("You have consumed all your calories for today!\n"); 
+	 if (remaining_calories == 0) {  
+        printf("You have consumed all your calories for today!\n");  
         printf("=======================================================================\n");
         return;  // Print a message for system shutdown and then exit the function by haeun
     } else if (remaining_calories < 0) {
-        printf("[Warning] Too few calories!\n");
+        printf("[Warning] Too few calories!\n"); // cal<0 by haeun
     if (health_data->total_calories_intake >= DAILY_CALORIE_GOAL) {
-            printf("Your total calorie intake for today has reached your goal!\n");
+            printf("Your total calorie intake for today has reached your goal!\n"); // print message when caloric goal is achieved by haeun 
         } else if (health_data->total_calories_intake < DAILY_CALORIE_GOAL) {
-            printf("Your total calorie intake for today has not reached your goal, remember to eat more!!\n");
+            printf("Your total calorie intake for today has not reached your goal, remember to eat more!!\n"); //Output message when caloric goal is less achieved
         } else {
-            printf("You have eaten more calories than planned today, but you have exercised too much!\n");
+            printf("You have eaten more calories than planned today, but you have exercised too much!\n"); // Output message when caloric goal is more achieved
         }
-    } else {  
+    } else {  // if exercise less
         printf("Please exercise for your health!\n");
         if (health_data->total_calories_intake >= DAILY_CALORIE_GOAL) {
-            printf("Your total calorie intake for today has reached your goal!\n");
+            printf("Your total calorie intake for today has reached your goal!\n");  // print message when caloric goal is achieved by haeun 
         } else if (health_data->total_calories_intake < DAILY_CALORIE_GOAL) {
-            printf("Your total calorie intake for today has not reached your goal, remember to eat more!!\n");
-        }
+            printf("Your total calorie intake for today has not reached your goal, remember to eat more!!\n");  // print message when caloric goal is not achieved by haeun
+        } 
     }    
    
     
     
-	 printf("=======================================================================\n");  
+	 printf("=======================================================================\n");   
 	 
 }
 
