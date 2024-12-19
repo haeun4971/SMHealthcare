@@ -42,10 +42,10 @@ void loadDiets(const char* DIETFILEPATH) {
 
     while (fscanf(file, "%s %d", diet_list[diet_list_size].food_name, &diet_list[diet_list_size].calories_intake) != EOF) {
     	
-    	diet_list_size++; //Increasing operator by haeun
+    	diet_list_size++; //Adding Items to the Diet List by haeun
     	
         if (diet_list_size >= MAX_DIETS){
-        	break;
+        	break;   //Ends when the maximum number of meals is exceeded by haeun
 		}
     }
     fclose(file);
@@ -69,7 +69,7 @@ void inputDiet(HealthData* health_data) {
     for (i=0; i < diet_list_size; i++) {
         printf("%d. %s (%d kcal)\n", i + 1, diet_list[i].food_name, diet_list[i].calories_intake);
     }
-    printf("%d. Exit\n", diet_list_size + 1);  //by haeun
+    printf("%d. Exit\n", diet_list_size + 1);  // Add exit options by haeun
 
     
     
@@ -92,16 +92,16 @@ void inputDiet(HealthData* health_data) {
 
     // ToCode: to enter the selected diet in the health data
     
-    int calories_intake = diet_list[choice - 1].calories_intake; //by haeun
+    int calories_intake = diet_list[choice - 1].calories_intake; //Save the selected diet to health_data by haeun
     
     health_data->diet[health_data->diet_count] = diet_list[choice - 1];
-    health_data->diet_count++;
+    health_data->diet_count++;  //// an increase diet by haeun
 
     
 
     // ToCode: to enter the total calories intake in the health data
     
-    health_data->total_calories_intake += calories_intake;  //by haeun
+    health_data->total_calories_intake += calories_intake;  // Update Total Calorie Intake by haeun
 
 
 
