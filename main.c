@@ -27,18 +27,18 @@ int main() {
     
     // Tocode: to read the list of the exercises and diets
     
-    loadExercises(EXERCISEFILEPATH);  //by haeun
-    loadDiets(DIETFILEPATH);  //by haeun
+    loadExercises(EXERCISEFILEPATH);  // Calling a function that reads the exercise list from a file by haeun
+    loadDiets(DIETFILEPATH);  // Calling a function that reads a list of diet from a file by haeun
     
     
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
-    	if (health_data.total_calories_intake >= 2000){  //by haeun
-            printf("You have consumed all your calories for today! \n");
+    	if (health_data.total_calories_intake >= 2000){  //  // If the total number of calories consumed is 2000 or more, no more calories can be added by haeun
+            printf("You have consumed all your calories for today! \n"); // Notify that you have exhausted all your calories by haeun
 		} 
 		else{
-			printf("\n=======================================================================\n");
+			printf("\n=======================================================================\n");  // print system options for users to choose from by haeun
         	printf("[Healthcare Management Systems] \n");
         	printf("1. Exercise \n");
         	printf("2. Diet \n");
@@ -80,9 +80,9 @@ int main() {
             default:
                 printf("[Error] Invalid option. \n");
                 printf("Please try again! \n");
-        }
-    } while (health_data.total_calories_intake < 2000 && choice != 4);
+        } 
+    } while (health_data.total_calories_intake < 2000 && choice != 4);  //Repeat until 2000 calories are exceeded or the user shuts down by haeun
 
-    return 0;
+    return 0;  // program end by haeun
 }
 
