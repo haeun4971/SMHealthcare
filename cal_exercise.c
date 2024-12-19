@@ -24,10 +24,10 @@ int exercise_list_size = 0;
 typedef struct {
     char exercise_name[MAX_EXERCISE_NAME_LEN]; 
     int calories_burned_per_minute;          
-} Exercises;  //Specifying a Structure by haeun
+} Exercises;  // // a structure that stores exercise information by haeun
 
-Exercise exercises[MAX_EXERCISES];  //Save exercise data by haeun
-int exercise_count; //Declaration of Variables by haeun
+Exercise exercises[MAX_EXERCISES];  // Save exercise data by haeun
+int exercise_count; // Declaration of Variables by haeun
 
 
 
@@ -46,11 +46,11 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     // ToCode: to read a list of the exercises from the given file
     while (fscanf(file,"%s %d",exercises[exercise_count].exercise_name, &exercises[exercise_count].calories_burned_per_minute)!=EOF) {
     	
-    	exercise_count++;  //by haeun
+    	exercise_count++;  // Add an item to exercise list by haeun
 
     	
         if (exercise_list_size >= MAX_EXERCISES){
-        	break;
+        	break;  //// exit when the maximum number of exercises is exceeded by haeun
 		}
     }
 
@@ -75,10 +75,10 @@ void inputExercise(HealthData* health_data) {
     printf("The list of exercises: \n");
     
     
-    for (i=0; i<exercise_count; i++){   //by haeun 
+    for (i=0; i<exercise_count; i++){   // Exercise list output by haeun
        printf("%d. %s (%d kcal/min)\n", i + 1, exercises[i].exercise_name, exercises[i].calories_burned_per_minute);
     }
-    printf("%d. Exit\n", exercise_count + 1);  //by haeun
+    printf("%d. Exit\n", exercise_count + 1);  // Add exit options by haeun
 
 
 
@@ -97,11 +97,11 @@ void inputExercise(HealthData* health_data) {
 
     // ToCode: to enter the selected exercise and total calcories burned in the health data
     
-    int calories_burned = exercises[choice - 1].calories_burned_per_minute * duration;   //by haeun
+    int calories_burned = exercises[choice - 1].calories_burned_per_minute * duration;   // Calculate exercise burn calories and save them to health_data by haeun
     health_data->total_calories_burned += calories_burned;
     
     health_data->exercises[health_data->exercise_count] = exercises[choice - 1];
-    health_data->exercise_count++;  //by haeun
+    health_data->exercise_count++;  // increase exercise by haeun
 
     
 
