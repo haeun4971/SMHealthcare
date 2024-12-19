@@ -92,8 +92,14 @@ void inputDiet(HealthData* health_data) {
 
     // ToCode: to enter the selected diet in the health data
     
+    int calories_intake = diets[choice - 1].calories_intake; //by haeun
+
+    
 
     // ToCode: to enter the total calories intake in the health data
+    
+    health_data->total_calories_intake += calories_intake;  //by haeun
+
 
 
 }
