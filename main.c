@@ -25,6 +25,10 @@ int main() {
     
     // Tocode: to read the list of the exercises and diets
     
+    loadExercises(EXERCISEFILEPATH);  //by haeun
+    loadDiets(DIETFILEPATH);  //by haeun
+
+    
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
@@ -75,7 +79,7 @@ int main() {
                 printf("[Error] Invalid option. \n");
                 printf("Please try again! \n");
         }
-    } while ( );
+    } while (health_data.total_calories_intake < 2000 && choice != 4);
 
     return 0;
 }

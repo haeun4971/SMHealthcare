@@ -35,14 +35,14 @@ void loadDiets(const char* DIETFILEPATH) {
 
      // ToCode: to read a list of the diets from the given file
      
-     diet_count = 0; //by haeun
+    
      
      
     
 
-    while (fscanf(file, "%s %d", diets[diet_count].food_name, &diets[diet_count].calories_intake) != EOF) {
+    while (fscanf(file, "%s %d", diet_list[diet_list_size].food_name, &diet_list[diet_list_size].calories_intake) != EOF) {
     	
-    	diet_count++; //Increasing operator by haeun
+    	diet_list_size++; //Increasing operator by haeun
     	
         if (diet_list_size >= MAX_DIETS){
         	break;
@@ -66,23 +66,23 @@ void inputDiet(HealthData* health_data) {
     // ToCode: to provide the options for the diets to be selected
     printf("The list of diets:\n");
     
-    for (i=0; i < diet_count; i++) {
-        printf("%d. %s (%d kcal)\n", i + 1, diets[i].food_name, diets[i].calories_intake);
+    for (i=0; i < diet_list_size; i++) {
+        printf("%d. %s (%d kcal)\n", i + 1, diet_list[i].food_name, diet_list[i].calories_intake);
     }
-    printf("%d. Exit\n", diet_count + 1);  //by haeun
+    printf("%d. Exit\n", diet_list_size + 1);  //by haeun
 
     
     
 	// ToCode: to enter the diet to be chosen with exit option
 	
-	printf("Choose a diet (1-%d): ", diet_count + 1);
+	printf("Choose a diet (1-%d): ", diet_list_size + 1);
     scanf("%d", &choice);  //by haeun
     
     
-     if (choice == diet_count + 1) {
+     if (choice == diet_list_size + 1) {
         printf("Exit selected. No diet recorded.\n");
         return; 
-    } else if (choice < 1 || choice > diet_count) {
+    } else if (choice < 1 || choice > diet_list_size) {
         printf("[Error] Invalid option selected.\n");
         return; 
     }     //by haeun
@@ -92,7 +92,7 @@ void inputDiet(HealthData* health_data) {
 
     // ToCode: to enter the selected diet in the health data
     
-    int calories_intake = diets[choice - 1].calories_intake; //by haeun
+    int calories_intake = diet_list[choice - 1].calories_intake; //by haeun
 
     
 
