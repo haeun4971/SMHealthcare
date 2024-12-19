@@ -90,16 +90,16 @@ void printHealthData(const HealthData* health_data) {
 	printf("=========================== History of Exercise =======================\n");
 	
 	
-	 if (health_data->exercise_count == 0) {
+    if (health_data->exercise_count == 0) {
         printf("No exercise data available.\n");
     } else {
         for (i = 0; i < health_data->exercise_count; i++) {
-            int calories_burned = health_data->exercises[i].calories_burned_per_minute; // 분당 소모 칼로리
+            int calories_burned = health_data->exercises[i].calories_burned_per_minute; 
             printf("Exercise: %s, Calories burned: %d kcal\n",
                    health_data->exercises[i].exercise_name,
                    calories_burned);
         }
-    }    //by haeun
+    }  //by haeun 
 	
 	 
   
@@ -108,16 +108,14 @@ void printHealthData(const HealthData* health_data) {
     // ToCode: to print out the saved history of diets
     printf("============================= History of Diet =========================\n");
     
-     if (health_data->diet_count == 0) {
+    if (health_data->diet_count == 0) {
         printf("No diet data available.\n");
     } else {
         for (i = 0; i < health_data->diet_count; i++) {
             printf("Food: %s, Calories intake: %d kcal\n",
                    health_data->diet[i].food_name,
                    health_data->diet[i].calories_intake);
-        }
-    }  //by haeun
-    
+        }  //by haeun
   
 
     printf("=======================================================================\n");
@@ -137,10 +135,12 @@ void printHealthData(const HealthData* health_data) {
  
     printf("=======================================================================\n \n");
     
+}
+    
 	
 	// ToCode: to print out the recommendtaion depending on the current total calories burned and intake 
 	
-	
+
 	 if (remaining_calories == 0) {
         printf("You have consumed all your calories for today!\n"); 
         printf("=======================================================================\n");
@@ -165,5 +165,7 @@ void printHealthData(const HealthData* health_data) {
    
     
     
-	 printf("=======================================================================\n");
+	 printf("=======================================================================\n");  
+	 
 }
+
