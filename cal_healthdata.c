@@ -89,24 +89,36 @@ void printHealthData(const HealthData* health_data) {
 	// ToCode: to print out the saved history of exercises
 	printf("=========================== History of Exercise =======================\n");
 	
-	 for (i = 0; i < health_data->exercise_count; i++) {
-        int calories_burned = health_data->exercises[i].calories_burned_per_minute; // 분당 소모 칼로리
-        printf("Exercise: %s, Calories burned: %d kcal\n",
-               health_data->exercises[i].exercise_name,
-               calories_burned); // 운동에 대한 총 소모 칼로리를 따로 계산하지 않음 by haeun
-    }
-  
+	
+	 if (health_data->exercise_count == 0) {
+        printf("No exercise data available.\n");
+    } else {
+        for (i = 0; i < health_data->exercise_count; i++) {
+            int calories_burned = health_data->exercises[i].calories_burned_per_minute; // 분당 소모 칼로리
+            printf("Exercise: %s, Calories burned: %d kcal\n",
+                   health_data->exercises[i].exercise_name,
+                   calories_burned);
+        }
+    }    //by haeun
+	
+	 
   
     printf("=======================================================================\n");
 
     // ToCode: to print out the saved history of diets
     printf("============================= History of Diet =========================\n");
     
-    for (i = 0; i < health_data->diet_count; i++) {
-    	printf("Food: %s, Calories intake: %d kcal\n",
-               health_data->diet[i].food_name,
-               health_data->diet[i].calories_intake);
+     if (health_data->diet_count == 0) {
+        printf("No diet data available.\n");
+    } else {
+        for (i = 0; i < health_data->diet_count; i++) {
+            printf("Food: %s, Calories intake: %d kcal\n",
+                   health_data->diet[i].food_name,
+                   health_data->diet[i].calories_intake);
+        }
     }  //by haeun
+    
+  
 
     printf("=======================================================================\n");
 
