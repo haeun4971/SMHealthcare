@@ -83,8 +83,12 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     			3. print out the saved history of calories
 */
 
+	
 void printHealthData(const HealthData* health_data) {
-	int i;
+    int i;
+    int remaining_calories = health_data->total_calories_intake - 
+                             (BASAL_METABOLIC_RATE + health_data->total_calories_burned);
+    // 위와 같이 함수 시작 부분에 remaining_calories 변수를 선언하고 초기화합니다.
 	
 	// ToCode: to print out the saved history of exercises
 	printf("=========================== History of Exercise =======================\n");
@@ -94,12 +98,12 @@ void printHealthData(const HealthData* health_data) {
         printf("No exercise data available.\n");
     } else {
         for (i = 0; i < health_data->exercise_count; i++) {
-            int calories_burned = health_data->exercises[i].calories_burned_per_minute; 
             printf("Exercise: %s, Calories burned: %d kcal\n",
                    health_data->exercises[i].exercise_name,
-                   calories_burned);
+                   health_data->exercises[i].calories_burned_per_minute);
         }
-    }  //by haeun 
+    }  //by haeun
+ 
 	
 	 
   
