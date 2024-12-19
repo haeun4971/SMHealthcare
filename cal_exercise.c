@@ -97,5 +97,9 @@ void inputExercise(HealthData* health_data) {
 
     // ToCode: to enter the selected exercise and total calcories burned in the health data
     
+    int calories_burned = exercises[choice - 1].calories_burned_per_minute * duration;   //by haeun
+    health_data->total_calories_burned += calories_burned;
+
+    
 
 }
